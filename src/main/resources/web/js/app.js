@@ -1,11 +1,15 @@
+
 app = (function () {
-    var email;
-    var password;
+    var emailU;
+    var passwordU;
+    var nameU;
+
 
     return {
         setUser: function () {
-            email = document.getElementById("txt_email").value;
-            password = email = document.getElementById("txt_password").value;
+            emailU = document.getElementById("txt_email").value;
+            passwordU= email = document.getElementById("txt_password").value;
+            nameU = document.getElementById("txt_name").value;
         },
 
         showName: function (data) {
@@ -31,6 +35,23 @@ app = (function () {
             //document.getElementById("funcionesTxt").innerHTML = "function app";
             api.getUsersBack(app.showUsers);
             
+        },
+        addUser: function () {           
+            app.setUser();
+            axios.post('/users', {
+                name: nameU,
+                email: emailU,
+                password: passwordU
+            }).then(response => {
+                // Respuesta del servidor
+                //var dat = JSON.parse(response)
+                alert(response.status)
+                app.showUsers(response);
+                
+            }).catch(e => {
+                console.log(e);
+        });
+            
         }
 
 
@@ -40,16 +61,18 @@ app = (function () {
 api = (function () {
     
     return {      
-        getNameBack: function (email,password, callback) {
+        addUserBack: function (email,password, callback) {
         	//alert( "Load was performed." );
-        	
-        	$.get( 'weather/'+name, function( data ) {
-        		//alert( "Load was performed sfsgsgd." );
-        		console.log(data);
-        		
-        		callback(data);
-        		  
-        		});
+                axios.post('/users', {
+                    name: 'Carlos Medina',
+                    email: 'carlos@mail.com',
+                    password: 'carlos'
+                }).then(response => {
+                    // Respuesta del servidor
+                    //callback(response);
+                }).catch(e => {
+                    console.log(e);
+            });
         },
         getUsersBack: function ( callback) {
         	//alert( "Load was performed." );

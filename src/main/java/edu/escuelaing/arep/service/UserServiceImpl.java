@@ -11,6 +11,9 @@ public class UserServiceImpl implements UserService{
 
 	@Override
 	public User addUser(User user) {
+		List<User> users= persistence.getAllUsers();
+		long newId = users.get(users.size()-1).getUserId() + 1;
+		user.setUserId(newId);
 		return persistence.addUser(user);
 	}
 

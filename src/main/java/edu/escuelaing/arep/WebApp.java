@@ -24,6 +24,14 @@ public class WebApp {
 			return "Hello, world";
 		});
 		
+		post("/users", (request, response) -> {
+		    response.type("application/json");
+		    User user = new Gson().fromJson(request.body(), User.class);
+		    userService.addUser(user);
+		 
+		    return new Gson()
+		      .toJson(new StandardResponse(StatusResponse.SUCCESS));
+		});
 		get("/users", (request, response) -> {
 		    response.type("application/json");
 		    return new Gson().toJson(
