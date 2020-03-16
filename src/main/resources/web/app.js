@@ -1,25 +1,17 @@
 
 app = (function () {
     var emailU;
-    var passwordU;
+    var userNameU;
     var nameU;
 
 
     return {
         setUser: function () {
             emailU = document.getElementById("txt_email").value;
-            passwordU= email = document.getElementById("txt_password").value;
+            userNameU= email = document.getElementById("txt_userName").value;
             nameU = document.getElementById("txt_name").value;
         },
-
-        showName: function (data) {
-            $("#name").empty();
-            var datos = JSON.parse(data);
-            var name = "City: " +datos.name;
-            $("#name").append(name);
-        },
         showUsers: function (dataR) {
-            //var dat = JSON.parse(dataR)
             //$("#resultados").empty();
 
             for (i in dataR.data) {
@@ -30,8 +22,7 @@ app = (function () {
             
         },
 
-        getUsers: function () {           
-            //app.setUser();
+        getUsers: function () {    
             //document.getElementById("funcionesTxt").innerHTML = "function app";
             api.getUsersBack(app.showUsers);
             
@@ -41,12 +32,14 @@ app = (function () {
             axios.post('/users', {
                 name: nameU,
                 email: emailU,
-                password: passwordU
+                userName: userNameU
             }).then(response => {
                 // Respuesta del servidor
-                //var dat = JSON.parse(response)
-                alert(response.status)
-                app.showUsers(response);
+                alert('User added')
+                console.log(response);
+                dataR = response
+                $("#resultados").find("#resultsBody").append(
+                    "<tr><td>" + dataR.data.data.userId + "</td><td>" + dataR.data.data.name +"</td><td>"+ dataR.data.data.email+"</td></tr>")
                 
             }).catch(e => {
                 console.log(e);
@@ -75,14 +68,14 @@ api = (function () {
             });
         },
         getUsersBack: function ( callback) {
-        	//alert( "Load was performed." );
-        	
-        	$.get( '/users', function( data ) {
-        		
-        		console.log(data);
-        		callback(data);
-        		  
-        		});
+            //alert( "Load was performed." );
+            
+            $.get( '/users', function( data ) {
+                
+                console.log(data);
+                callback(data);
+                
+            });
         }
 
     };

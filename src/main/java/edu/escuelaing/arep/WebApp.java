@@ -1,6 +1,7 @@
 package edu.escuelaing.arep;
 import static spark.Spark.*;
 
+
 import edu.escuelaing.arep.model.User;
 import edu.escuelaing.arep.service.UserService;
 import edu.escuelaing.arep.service.UserServiceImpl;
@@ -10,27 +11,42 @@ import com.google.gson.Gson;
 public class WebApp {
 	
 	public static void main(String[] args) {
+		//port(getPort());
+		//staticFiles.location("/web");
 		port(getPort());
-		staticFiles.location("/web");
+        options("/*",
+        (request, response) -> {
+
+            String accessControlRequestHeaders = request
+                    .headers("Access-Control-Request-Headers");
+            if (accessControlRequestHeaders != null) {
+                response.header("Access-Control-Allow-Headers",
+                        accessControlRequestHeaders);
+            }
+
+            String accessControlRequestMethod = request
+                    .headers("Access-Control-Request-Method");
+            if (accessControlRequestMethod != null) {
+                response.header("Access-Control-Allow-Methods",
+                        accessControlRequestMethod);
+            }
+
+            return "OK";
+        });
+
+        before((request, response) -> response.header("Access-Control-Allow-Origin", "*"));
+		
 		final Gson gson = new Gson();
 		UserService  userService = new UserServiceImpl();
-		
-		get("/hello", (request, response) -> {
-			
-			/*response.type("application/json");
-			String hello ="{\"lista\":\"hola\"}";
-			response.status(200);
-			return gson.toJsonTree(hello);*/
-			return "Hello, world";
-		});
 		
 		post("/users", (request, response) -> {
 		    response.type("application/json");
 		    User user = new Gson().fromJson(request.body(), User.class);
-		    userService.addUser(user);
+		    //userService.addUser(user);
 		 
-		    return new Gson()
-		      .toJson(new StandardResponse(StatusResponse.SUCCESS));
+		    return new Gson().toJson(
+				      new StandardResponse(StatusResponse.SUCCESS,new Gson()
+				        .toJsonTree(userService.addUser(user))));
 		});
 		get("/users", (request, response) -> {
 		    response.type("application/json");
