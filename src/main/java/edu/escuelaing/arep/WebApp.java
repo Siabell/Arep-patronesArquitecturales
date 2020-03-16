@@ -1,7 +1,6 @@
 package edu.escuelaing.arep;
 import static spark.Spark.*;
 
-
 import edu.escuelaing.arep.model.User;
 import edu.escuelaing.arep.service.UserService;
 import edu.escuelaing.arep.service.UserServiceImpl;
@@ -11,31 +10,8 @@ import com.google.gson.Gson;
 public class WebApp {
 	
 	public static void main(String[] args) {
-		//port(getPort());
-		//staticFiles.location("/web");
 		port(getPort());
-        options("/*",
-        (request, response) -> {
-
-            String accessControlRequestHeaders = request
-                    .headers("Access-Control-Request-Headers");
-            if (accessControlRequestHeaders != null) {
-                response.header("Access-Control-Allow-Headers",
-                        accessControlRequestHeaders);
-            }
-
-            String accessControlRequestMethod = request
-                    .headers("Access-Control-Request-Method");
-            if (accessControlRequestMethod != null) {
-                response.header("Access-Control-Allow-Methods",
-                        accessControlRequestMethod);
-            }
-
-            return "OK";
-        });
-
-        before((request, response) -> response.header("Access-Control-Allow-Origin", "*"));
-		
+		staticFiles.location("/web");
 		final Gson gson = new Gson();
 		UserService  userService = new UserServiceImpl();
 		

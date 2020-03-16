@@ -14,9 +14,9 @@ app = (function () {
         showUsers: function (dataR) {
             //$("#resultados").empty();
 
-            for (i in dataR.data) {
+            for (i in dataR.data.data) {
                 $("#resultados").find("#resultsBody").append(
-                    "<tr><td>" + dataR.data[i].userId + "</td><td>" + dataR.data[i].name +"</td><td>"+ dataR.data[i].email+"</td></tr>")
+                    "<tr><td>" + dataR.data.data[i].userId + "</td><td>" + dataR.data.data[i].name +"</td><td>"+ dataR.data.data[i].email+"</td></tr>")
     
             }
             
@@ -24,7 +24,17 @@ app = (function () {
 
         getUsers: function () {    
             //document.getElementById("funcionesTxt").innerHTML = "function app";
-            api.getUsersBack(app.showUsers);
+            axios.get('/users')
+                .then(response => {
+                    // Respuesta del servidor
+                    console.log(response)
+                    app.showUsers(response);
+                    
+                })
+                .catch(e => {
+                    // Capturamos los errores
+                    console.log(e);
+                })
             
         },
         addUser: function () {           
@@ -70,12 +80,13 @@ api = (function () {
         getUsersBack: function ( callback) {
             //alert( "Load was performed." );
             
-            $.get( '/users', function( data ) {
-                
-                console.log(data);
-                callback(data);
-                
-            });
+            axios.get('/users')
+                .then(response => {
+                    // Obtenemos los datos
+                })
+                .catch(e => {
+                    // Capturamos los errores
+                })
         }
 
     };
