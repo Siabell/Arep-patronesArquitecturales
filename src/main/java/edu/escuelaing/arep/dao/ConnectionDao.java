@@ -16,17 +16,16 @@ public class ConnectionDao {
 	Connection con = null;
 	public Connection RetriveConnection() {
 		try { 
-		    String dbName = "databaseA";
+		    String dbName = "databaseAws";
             String user = "admin";
             String password = "databaseArep";
-            String host = "database-1.c0heyk0s1a4l.us-east-1.rds.amazonaws.com";
+            String host = "database-2.c0heyk0s1a4l.us-east-1.rds.amazonaws.com";
             String port = "3306";
             String jdbcUrl = "jdbc:mysql://" + host + ":" + port + "/" + dbName ;
 			/*con=DriverManager.getConnection(  
 			"jdbc:mysql://database-1.c0heyk0s1a4l.us-east-1.rds.amazonaws.com:3306/databaseA","admin","databaseArep");*/
             System.out.println("antes de conectarme");
             con = DriverManager.getConnection(jdbcUrl, user, password);
-            //con=DriverManager.getConnection(jdbcUrl);
             System.out.println("me conecto");
 			}catch(Exception e){ System.out.println(e);}
 		return con;  

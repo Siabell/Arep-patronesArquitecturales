@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.18.0/axios.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <script src="app.js"></script>
+    <title>Users</title>
+</head>
+<body onload="app.getUsers()" >
+    <form>
+        <div class="container">
+            <br><br>
+            
+            <h3>Tutorial Arep-Patrones Arquitecturales</h3>
+            
+            <br>
+            <p style="margin-left:3%; margin-right:1%;">
+                Este es un Tutorial para construir un sitio web dinámico 
+                sobre Amazon Web Services: EC2,S3 y RDS. Para esto, <br>
+                Se desplegará un sitio estático usando S3,<br>
+                Se desplegará un formulario dinámico usando EC2, y<br>
+                Se Enlazará el formulario a una base de datos relacional,
+                para almacenar y traer los datos almacenados. 
+            </p>
+            <br>
+            <h5>Base de datos</h5>
+            <br>
+            <p style="margin-left:3%; margin-right:3%;">
+                1.Crear una instancia en RDS. <br>
+                2. Configurar la creacion de la base de datos.<br>
+                
+
+            </p>
+            <p style="margin-left:5%; margin-right:5%;">
+                - Método de creación -> Standard Create <br>
+                - Engine Options -> MySql <br>
+                - Templates -> Free tier <br>
+                - Settings -> nombre de la instancia  <br>
+                - Credential Settings -> master username / master password <br>
+                - Additional connectivity configuration -> publicly accesible / crear nueva vpc <br>
+                - Additional Configuration -> nombre de la base de datos
+            </p>
+
+
+        </div>
+    </form>
+</body>
+</html>

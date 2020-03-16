@@ -15,7 +15,6 @@ public class WebApp {
 		final Gson gson = new Gson();
 		UserService  userService = new UserServiceImpl();
 		System.out.println("entra antes post y get");
-		
 		options("/*",
 	        (request, response) -> {
 

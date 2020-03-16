@@ -62,35 +62,3 @@ app = (function () {
 
     };
 })();
-
-api = (function () {
-    
-    return {      
-        addUserBack: function (email,password, callback) {
-        	//alert( "Load was performed." );
-                axios.post('/users', {
-                    name: 'Carlos Medina',
-                    email: 'carlos@mail.com',
-                    password: 'carlos'
-                }).then(response => {
-                    // Respuesta del servidor
-                    //callback(response);
-                }).catch(e => {
-                    console.log(e);
-            });
-        },
-        getUsersBack: function ( callback) {
-            //alert( "Load was performed." );
-            
-            axios.get('/users')
-                .then(response => {
-                    // Obtenemos los datos
-                })
-                .catch(e => {
-                    // Capturamos los errores
-                })
-        }
-
-    };
-
-})();
