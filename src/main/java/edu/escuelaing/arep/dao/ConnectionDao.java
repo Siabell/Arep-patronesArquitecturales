@@ -25,8 +25,8 @@ public class ConnectionDao {
 			/*con=DriverManager.getConnection(  
 			"jdbc:mysql://database-1.c0heyk0s1a4l.us-east-1.rds.amazonaws.com:3306/databaseA","admin","databaseArep");*/
             
-            Class.forName("com.mysql.jdbc.Driver"); 
             con=DriverManager.getConnection(jdbcUrl);
+            System.out.println("me conecto");
 			}catch(Exception e){ System.out.println(e);}
 		return con;  
 		}
@@ -39,6 +39,7 @@ public class ConnectionDao {
 		try {
 		Statement stmt=conn.createStatement();  
 		ResultSet rs=stmt.executeQuery("select * from User");  
+		System.out.println("hice consulta");
 		while(rs.next())  {
 			User user = new User();
 			user.setUserId(rs.getInt(1));
