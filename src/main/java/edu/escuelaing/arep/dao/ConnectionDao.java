@@ -71,17 +71,7 @@ public class ConnectionDao {
 		}
         return null;
     }
+
 	
 	
-	public static void main (String[] args) {
-		try {
-			Connection MYcon=DriverManager.getConnection(  
-			"jdbc:mysql://database-1.c0heyk0s1a4l.us-east-1.rds.amazonaws.com:3306/databaseA","admin","databaseArep");
-			System.out.println("aesefsef");
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		
-	}
 }

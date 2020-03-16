@@ -14,6 +14,7 @@ public class WebApp {
 		staticFiles.location("/web");
 		final Gson gson = new Gson();
 		UserService  userService = new UserServiceImpl();
+		System.out.println("entra antes post y get");
 		
 		post("/users", (request, response) -> {
 		    response.type("application/json");
@@ -26,6 +27,7 @@ public class WebApp {
 		});
 		get("/users", (request, response) -> {
 		    response.type("application/json");
+		    System.out.println("en get");
 		    return new Gson().toJson(
 		      new StandardResponse(StatusResponse.SUCCESS,new Gson()
 		        .toJsonTree(userService.getAllUsers())));

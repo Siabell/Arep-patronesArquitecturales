@@ -3,6 +3,7 @@ app = (function () {
     var emailU;
     var userNameU;
     var nameU;
+    var url= '';
 
 
     return {
@@ -24,7 +25,8 @@ app = (function () {
 
         getUsers: function () {    
             //document.getElementById("funcionesTxt").innerHTML = "function app";
-            axios.get('/users')
+            //axios.get('/users')
+            axios.get(url+'/users')
                 .then(response => {
                     // Respuesta del servidor
                     console.log(response)
@@ -39,7 +41,7 @@ app = (function () {
         },
         addUser: function () {           
             app.setUser();
-            axios.post('/users', {
+            axios.post(url+'/users', {
                 name: nameU,
                 email: emailU,
                 userName: userNameU
