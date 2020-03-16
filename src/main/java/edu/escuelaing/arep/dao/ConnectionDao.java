@@ -24,7 +24,7 @@ public class ConnectionDao {
             String jdbcUrl = "jdbc:mysql://" + host + ":" + port + "/" + dbName + "?user=" + user + "&password=" + password;
 			/*con=DriverManager.getConnection(  
 			"jdbc:mysql://database-1.c0heyk0s1a4l.us-east-1.rds.amazonaws.com:3306/databaseA","admin","databaseArep");*/
-            
+            System.out.println("antes de conectarme");
             con=DriverManager.getConnection(jdbcUrl);
             System.out.println("me conecto");
 			}catch(Exception e){ System.out.println(e);}
