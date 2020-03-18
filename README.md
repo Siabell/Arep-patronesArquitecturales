@@ -8,8 +8,16 @@ Se Enlazará el formulario a una base de datos relacional, para almacenar y trae
 
 ## Tutorial
 
+El tutorial web  para la construcción del sitio se encuentra en este enlace:
+
 [Turorial Web](
  https://htmlpreview.github.io/?https://github.com/Siabell/Arep-patronesArquitecturales/blob/master/tutorial.html)
+
+ y un video del tutorial paso a paso:
+
+ [![Tutorial AWS](images/crearBucket.png)](https://youtu.be/nqOV-bCfSdI) 
+
+
 
 ## Getting Started
 
