@@ -15,9 +15,7 @@ El tutorial web  para la construcción del sitio se encuentra en este enlace:
 
  y un video del tutorial paso a paso:
 
- [![Tutorial AWS](images/crearBucket.png)](https://youtu.be/nqOV-bCfSdI) 
-
-
+[![Tutorial AWS](images/crearBucket.PNG)](https://youtu.be/nqOV-bCfSdI) 
 
 ## Getting Started
 
