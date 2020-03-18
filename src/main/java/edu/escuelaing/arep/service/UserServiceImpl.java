@@ -14,6 +14,9 @@ public class UserServiceImpl implements UserService{
 	ConnectionDao connDao = new ConnectionDao();
 	Connection conn = null;
 	
+	/**
+	 * Agregar un usuario
+	 */
 	@Override
 	public User addUser(User user) {
 		/*List<User> users= persistence.getAllUsers();*/
@@ -26,6 +29,9 @@ public class UserServiceImpl implements UserService{
 	}
 
 	@Override
+	/**
+	 * Obtener una lista con todos los usuarios
+	 */
 	public List<User> getAllUsers() {
 		/*List<User> users= persistence.getAllUsers();
 		return users;*/

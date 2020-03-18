@@ -14,6 +14,10 @@ import edu.escuelaing.arep.model.User;
 public class ConnectionDao {
 	
 	Connection con = null;
+	/**
+	 * Realizar la conexion a la base de datos
+	 * @return
+	 */
 	public Connection RetriveConnection() {
 		try { 
 		    String dbName = "databaseAws";
@@ -31,6 +35,11 @@ public class ConnectionDao {
 		return con;  
 		}
 	
+	/**
+	 * Obtener los usuarios que estan en la base de datos
+	 * @param conn
+	 * @return una lista de usuarios
+	 */
 	public List<User> getAllUsers(Connection conn){
 		if(conn == null) {
 			conn = RetriveConnection();
@@ -56,6 +65,12 @@ public class ConnectionDao {
 		//con.close();  
 	}
 	
+	/**
+	 * Agregar un usuario a la base de datos
+	 * @param conn conexion
+	 * @param newUser el usuario a agregar
+	 * @return el usuario agregado a la base de datos 
+	 */
 	public User addUser(Connection conn,User newUser) {
 		if(conn == null) {
 			conn = RetriveConnection();

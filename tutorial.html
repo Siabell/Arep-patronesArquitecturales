@@ -7,10 +7,9 @@
     <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.18.0/axios.min.js"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-    <script src="app.js"></script>
-    <title>Users</title>
+    <title>Tutorial</title>
 </head>
-<body onload="app.getUsers()" >
+<body >
     <form>
         <div class="container">
             <br><br>
@@ -24,7 +23,10 @@
                 Se desplegará un sitio estático usando S3,<br>
                 Se desplegará un formulario dinámico usando EC2, y<br>
                 Se Enlazará el formulario a una base de datos relacional,
-                para almacenar y traer los datos almacenados. 
+                para almacenar y traer los datos almacenados. <br><br>
+
+                El código de la implementación esta disponible Aqui: 
+                <a href="https://github.com/Siabell/Arep-patronesArquitecturales/">Repositorio</a> 
             </p>
             <br>
             <h5>Base de datos</h5>
@@ -50,15 +52,29 @@
                 <img src="images/probarConexion.PNG" alt="user" style="width:500px;height:400px;"> <br><br>
                 5. Crear las tablas e insertar datos<br><br>
                 <img src="images/crearTablas.PNG" alt="user" style="width:600px;height:500px;"> <br><br>
+                6. Connectarse a la base de datos desde la aplicación
+                <br><br>
+                <img src="images/connectDB.PNG" alt="user" style="width:600px;height:400px;"> <br><br>
+
             </p>
             <h5>EC2</h5>
             <br>
             <p style="margin-left:3%; margin-right:3%;">
                 1. Crear una instancia de EC2<br>
+            </p>    
+                <p style="margin-left:5%; margin-right:5%;">
+                    - Crear o seleccionar un  par de llaves y descargarlas.
+                </p>
+                <img src="images/keys.PNG" alt="user" style="width:600px;height:400px;"> <br><br>
+                <img src="images/ec2.PNG" alt="user" style="width:600px;height:300px;"> <br><br>
+                <p style="margin-left:3%; margin-right:3%;">
                 2. Cambiar las reglas de entrada de la vpc para poder 
                 acceder desde la EC2 a la base de datos, http y el puerto
-                de la aplicación.<br>
+                de la aplicación.<br><br>
+                <img src="images/rulesEc2.PNG" alt="user" style="width:600px;height:450px;"> <br><br>
                 3. Conectarse a la instancia con ssh <br>
+                <br>
+                <img src="images/ssh.PNG" alt="user" style="width:600px;height:350px;"> <br><br>
                 
             </p>
             <p style="margin-left:5%; margin-right:5%;">
@@ -98,7 +114,8 @@
             <h5>S3</h5>
             <br>
             <p style="margin-left:3%; margin-right:3%;">
-                1. Crear un bucket<br>
+                1. Crear un bucket<br><br>
+                <img src="images/crearBucket.PNG" alt="user" style="width:500px;height:300px;"> <br><br>
             </p>
             <p style="margin-left:5%; margin-right:5%;">
                 - permitir acceso público
@@ -109,9 +126,12 @@
             </p>
             <p style="margin-left:5%; margin-right:5%;">
                 - En js cambiar a la url pública de la EC2.
+                <br><br>
+                <img src="images/ConfArch.png" alt="otd" style="width:700px;height:400px;"> <br><br>
             </p>
             <p style="margin-left:3%; margin-right:3%;">
-                3.Subir los archivos al bucket<br>
+                3.Subir los archivos al bucket<br><br>
+                <img src="images/subirArch.PNG" alt="otd" style="width:600px;height:400px;"> <br><br>
                 4.Configurar los cors para permitir acceder a la s3<br>
             </p>
             <p style="margin-left:5%; margin-right:5%;">
@@ -134,11 +154,15 @@
             <p style="margin-left:5%; margin-right:5%;"> 
                 &lt;/CORSConfiguration&gt;<br>
             </p>
+            <br>
+                <img src="images/corsConf.PNG" alt="otd" style="width:700px;height:400px;"> <br><br>
             <p style="margin-left:3%; margin-right:3%;">
                 5.En properties/static website hosting
-                referenciar el documento index.html<br>
+                referenciar el documento index.html<br><br>
+                <img src="images/webHost.PNG" alt="otd" style="width:350px;height:400px;"> <br><br>
                 6. Correr el programa en ec2<br>
-                7. Verificar su funcionalidad.
+                7. Verificar su funcionalidad.<br><br>
+                <img src="images/funcionalidad.PNG" alt="otd" style="width:700px;height:400px;"> <br><br>
             </p>
             <br>
             

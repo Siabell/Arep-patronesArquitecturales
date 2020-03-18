@@ -3,7 +3,7 @@ app = (function () {
     var emailU;
     var userNameU;
     var nameU;
-    var url= '';
+    var url= 'http://ec2-52-90-51-254.compute-1.amazonaws.com:4567';
 
 
     return {
