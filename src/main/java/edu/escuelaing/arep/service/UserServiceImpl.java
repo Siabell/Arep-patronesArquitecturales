@@ -9,7 +9,6 @@ import edu.escuelaing.arep.persistence.UserPersistence;
 
 public class UserServiceImpl implements UserService{
 	
-	private UserPersistence persistence = new UserPersistence();
 	
 	private static List<User> users;
 	ConnectionDao connDao = new ConnectionDao();
@@ -24,13 +23,6 @@ public class UserServiceImpl implements UserService{
 		User newUser= connDao.addUser(conn, user);
 		users.add(user);
 		return newUser;
-	}
-
-	@Override
-	public User update(User user) {
-		User newUser = persistence.updateUser(user);
-		return newUser;
-		
 	}
 
 	@Override

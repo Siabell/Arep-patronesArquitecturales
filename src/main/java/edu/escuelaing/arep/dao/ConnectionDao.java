@@ -19,7 +19,7 @@ public class ConnectionDao {
 		    String dbName = "databaseAws";
             String user = "admin";
             String password = "databaseArep";
-            String host = "database-2.c0heyk0s1a4l.us-east-1.rds.amazonaws.com";
+            String host = "database-1.c0heyk0s1a4l.us-east-1.rds.amazonaws.com";
             String port = "3306";
             String jdbcUrl = "jdbc:mysql://" + host + ":" + port + "/" + dbName ;
 			/*con=DriverManager.getConnection(  
